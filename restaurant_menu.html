@@ -3,486 +3,234 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Cosmic Cafe</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: #333;
-        line-height: 1.6;
-      }
-
-      header {
-        background: linear-gradient(to right, #1a1a2e, #16213e);
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      #header-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 5px solid #f39c12;
-        margin-bottom: 1rem;
-        object-fit: cover;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-      }
-
-      header h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(45deg, #f39c12, #e74c3c);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        margin-top: 1.5rem;
-      }
-
-      nav a {
-        color: #f39c12;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-      }
-
-      nav a:hover {
-        background-color: rgba(243, 156, 18, 0.2);
-        transform: translateY(-2px);
-      }
-
-      main {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 2rem;
-      }
-
-      section {
-        background: white;
-        margin: 2rem 0;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      h2 {
-        color: #16213e;
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        border-bottom: 3px solid #f39c12;
-        padding-bottom: 1rem;
-      }
-
-      .menu-items {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      article {
-        border: 2px solid #e0e0e0;
-        border-radius: 10px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
-      }
-
-      article:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        border-color: #f39c12;
-      }
-
-      article img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-      }
-
-      article h3 {
-        color: #16213e;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      article p {
-        color: #555;
-        margin-bottom: 0.5rem;
-      }
-
-      article p em {
-        color: #27ae60;
-        font-weight: bold;
-        font-size: 1.1rem;
-      }
-
-      form {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .form-group {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-      }
-
-      label {
-        display: block;
-        font-weight: bold;
-        color: #16213e;
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-      }
-
-      input[type="number"] {
-        width: 100%;
-        padding: 0.8rem;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
-      }
-
-      input[type="number"]:focus {
-        outline: none;
-        border-color: #667eea;
-      }
-
-      .radio-group,
-      .checkbox-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        margin-top: 0.5rem;
-      }
-
-      .radio-group label,
-      .checkbox-group label {
-        display: flex;
-        align-items: center;
-        font-weight: normal;
-        cursor: pointer;
-      }
-
-      input[type="radio"],
-      input[type="checkbox"] {
-        margin-right: 0.5rem;
-        width: 18px;
-        height: 18px;
-        cursor: pointer;
-      }
-
-      textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-family: inherit;
-        resize: vertical;
-        min-height: 100px;
-        transition: border-color 0.3s ease;
-      }
-
-      textarea:focus {
-        outline: none;
-        border-color: #667eea;
-      }
-
-      input[type="submit"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 1rem 3rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: block;
-        margin: 2rem auto 0;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-      }
-
-      input[type="submit"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-      }
-
-      footer {
-        background: #1a1a2e;
-        color: white;
-        text-align: center;
-        padding: 2rem;
-        margin-top: 3rem;
-      }
-
-      footer p {
-        font-size: 1.1rem;
-      }
-
-      footer p strong {
-        color: #f39c12;
-      }
-    </style>
+    <title>Bella Notte Trattoria</title>
   </head>
   <body>
     <header>
       <img
         id="header-img"
-        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&h=300&fit=crop"
-        alt="The Cosmic Cafe Logo"
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=300&fit=crop"
+        alt="Restaurant interior"
+        width="800"
+        height="300"
       />
-      <h1>The Cosmic Cafe</h1>
+      <h1>Bella Notte Trattoria</h1>
       <nav>
-        <a href="#menu">Menu</a>
-        <a href="#order-form">Place Order</a>
+        <h2><a href="#menu">Menu</a></h2>
+        <h2><a href="#order-form">Place Your Order</a></h2>
       </nav>
     </header>
 
     <main>
       <section id="menu">
         <h2>Menu</h2>
-        <div class="menu-items">
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
-              alt="Galactic Pizza"
-            />
-            <h3>Galactic Pizza</h3>
-            <p>
-              A cosmic blend of mozzarella, pepperoni, and our secret space
-              sauce on a perfectly crispy crust. This pizza is out of this
-              world!
-            </p>
-            <p><em>$14.99</em></p>
-          </article>
 
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
-              alt="Nebula Burger"
-            />
-            <h3>Nebula Burger</h3>
-            <p>
-              A juicy beef patty topped with caramelized onions, cosmic cheese,
-              lettuce, and our signature nebula sauce. Served with asteroid
-              fries.
-            </p>
-            <p><em>$12.99</em></p>
-          </article>
+        <article>
+          <img
+            src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=300&h=200&fit=crop"
+            alt="Margherita Pizza"
+            width="300"
+            height="200"
+          />
+          <h3>Margherita Pizza</h3>
+          <p>
+            A classic Italian pizza with fresh mozzarella, basil, and our
+            homemade tomato sauce on a wood-fired crust. Simple, authentic, and
+            delicious. <em>$14.99</em>
+          </p>
+        </article>
 
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop"
-              alt="Stardust Salad"
-            />
-            <h3>Stardust Salad</h3>
-            <p>
-              Fresh mixed greens with cherry tomatoes, cucumber, feta cheese,
-              and a sprinkle of edible glitter. Dressed with our cosmic
-              vinaigrette.
-            </p>
-            <p><em>$9.99</em></p>
-          </article>
+        <article>
+          <img
+            src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=300&h=200&fit=crop"
+            alt="Spaghetti Carbonara"
+            width="300"
+            height="200"
+          />
+          <h3>Spaghetti Carbonara</h3>
+          <p>
+            Creamy pasta with crispy pancetta, parmesan cheese, and farm-fresh
+            eggs. A Roman specialty that melts in your mouth. <em>$16.99</em>
+          </p>
+        </article>
 
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&h=300&fit=crop"
-              alt="Meteor Pasta"
-            />
-            <h3>Meteor Pasta</h3>
-            <p>
-              Al dente penne pasta tossed in a creamy garlic sauce with grilled
-              chicken, sun-dried tomatoes, and fresh basil. A meteor shower of
-              flavor!
-            </p>
-            <p><em>$13.99</em></p>
-          </article>
+        <article>
+          <img
+            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=200&fit=crop"
+            alt="Caesar Salad"
+            width="300"
+            height="200"
+          />
+          <h3>Caesar Salad</h3>
+          <p>
+            Crisp romaine lettuce tossed with our signature Caesar dressing,
+            parmesan shavings, and garlic croutons. Fresh and satisfying.
+            <em>$9.99</em>
+          </p>
+        </article>
 
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop"
-              alt="Lunar Lemonade"
-            />
-            <h3>Lunar Lemonade</h3>
-            <p>
-              Freshly squeezed lemonade with a hint of lavender and a touch of
-              sparkle. Refreshing and otherworldly!
-            </p>
-            <p><em>$4.99</em></p>
-          </article>
-
-          <article>
-            <img
-              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"
-              alt="Cosmic Brownie"
-            />
-            <h3>Cosmic Brownie</h3>
-            <p>
-              A decadent chocolate brownie topped with vanilla ice cream,
-              caramel drizzle, and rainbow sprinkles. The perfect ending to your
-              cosmic journey!
-            </p>
-            <p><em>$6.99</em></p>
-          </article>
-        </div>
+        <article>
+          <img
+            src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=300&h=200&fit=crop"
+            alt="Tiramisu"
+            width="300"
+            height="200"
+          />
+          <h3>Tiramisu</h3>
+          <p>
+            Traditional Italian dessert with layers of espresso-soaked
+            ladyfingers and mascarpone cream, dusted with cocoa powder. The
+            perfect sweet ending. <em>$7.99</em>
+          </p>
+        </article>
       </section>
 
       <section id="order-form">
         <h2>Place Your Order</h2>
-        <form action="/submit-order" method="post">
-          <div class="form-group">
-            <label for="galactic-pizza">Galactic Pizza (Quantity):</label>
+
+        <form>
+          <div>
+            <label for="margherita-qty">Margherita Pizza (Quantity):</label>
             <input
               type="number"
-              id="galactic-pizza"
-              name="galactic-pizza"
+              id="margherita-qty"
+              name="margherita-qty"
               min="0"
               value="0"
             />
           </div>
 
-          <div class="form-group">
-            <label for="nebula-burger">Nebula Burger (Quantity):</label>
+          <div>
+            <label for="carbonara-qty">Spaghetti Carbonara (Quantity):</label>
             <input
               type="number"
-              id="nebula-burger"
-              name="nebula-burger"
+              id="carbonara-qty"
+              name="carbonara-qty"
               min="0"
               value="0"
             />
           </div>
 
-          <div class="form-group">
-            <label for="stardust-salad">Stardust Salad (Quantity):</label>
+          <div>
+            <label for="caesar-qty">Caesar Salad (Quantity):</label>
             <input
               type="number"
-              id="stardust-salad"
-              name="stardust-salad"
+              id="caesar-qty"
+              name="caesar-qty"
               min="0"
               value="0"
             />
           </div>
 
-          <div class="form-group">
-            <label for="meteor-pasta">Meteor Pasta (Quantity):</label>
+          <div>
+            <label for="tiramisu-qty">Tiramisu (Quantity):</label>
             <input
               type="number"
-              id="meteor-pasta"
-              name="meteor-pasta"
+              id="tiramisu-qty"
+              name="tiramisu-qty"
               min="0"
               value="0"
             />
           </div>
 
-          <div class="form-group">
-            <label for="lunar-lemonade">Lunar Lemonade (Quantity):</label>
-            <input
-              type="number"
-              id="lunar-lemonade"
-              name="lunar-lemonade"
-              min="0"
-              value="0"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="cosmic-brownie">Cosmic Brownie (Quantity):</label>
-            <input
-              type="number"
-              id="cosmic-brownie"
-              name="cosmic-brownie"
-              min="0"
-              value="0"
-            />
-          </div>
-
-          <div class="form-group">
-            <label>Choose Your Side:</label>
-            <div class="radio-group">
-              <label>
-                <input type="radio" name="side" value="asteroid-fries" />
-                Asteroid Fries
-              </label>
-              <label>
-                <input type="radio" name="side" value="comet-rings" />
-                Comet Onion Rings
-              </label>
-              <label>
-                <input type="radio" name="side" value="space-slaw" />
-                Space Slaw
-              </label>
-              <label>
-                <input type="radio" name="side" value="no-side" />
-                No Side
-              </label>
+          <fieldset>
+            <legend>Choose Your Side:</legend>
+            <div>
+              <input
+                type="radio"
+                id="garlic-bread"
+                name="side"
+                value="garlic-bread"
+              />
+              <label for="garlic-bread">Garlic Bread</label>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label>Add-Ons (Select all that apply):</label>
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" name="addons" value="extra-cheese" />
-                Extra Cosmic Cheese (+$1.50)
-              </label>
-              <label>
-                <input type="checkbox" name="addons" value="bacon" />
-                Crispy Bacon (+$2.00)
-              </label>
-              <label>
-                <input type="checkbox" name="addons" value="avocado" />
-                Fresh Avocado (+$1.75)
-              </label>
-              <label>
-                <input type="checkbox" name="addons" value="gluten-free" />
-                Make it Gluten-Free (+$2.50)
-              </label>
+            <div>
+              <input
+                type="radio"
+                id="bruschetta"
+                name="side"
+                value="bruschetta"
+              />
+              <label for="bruschetta">Bruschetta</label>
             </div>
-          </div>
+            <div>
+              <input type="radio" id="soup" name="side" value="soup" />
+              <label for="soup">Soup of the Day</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="no-side"
+                name="side"
+                value="no-side"
+                checked
+              />
+              <label for="no-side">No Side</label>
+            </div>
+          </fieldset>
 
-          <div class="form-group">
-            <label for="special-requests"
-              >Special Requests or Dietary Restrictions:</label
-            >
+          <fieldset>
+            <legend>Add-Ons:</legend>
+            <div>
+              <input
+                type="checkbox"
+                id="extra-cheese"
+                name="extra-cheese"
+                value="extra-cheese"
+              />
+              <label for="extra-cheese">Extra Cheese (+$2.00)</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="extra-sauce"
+                name="extra-sauce"
+                value="extra-sauce"
+              />
+              <label for="extra-sauce">Extra Sauce (+$1.00)</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="gluten-free"
+                name="gluten-free"
+                value="gluten-free"
+              />
+              <label for="gluten-free">Gluten-Free Option (+$3.00)</label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="special-requests">Special Requests:</label>
             <textarea
               id="special-requests"
               name="special-requests"
-              placeholder="Let us know if you have any allergies, special requests, or modifications..."
+              rows="4"
+              cols="50"
+              placeholder="Any allergies, dietary restrictions, or special instructions?"
             ></textarea>
           </div>
 
-          <input type="submit" value="Go To Checkout" />
+          <div>
+            <label for="delivery-instructions">Delivery Instructions:</label>
+            <textarea
+              id="delivery-instructions"
+              name="delivery-instructions"
+              rows="3"
+              cols="50"
+              placeholder="Please provide your address and any delivery notes..."
+            ></textarea>
+          </div>
+
+          <div>
+            <input type="submit" value="Go To Checkout" />
+          </div>
         </form>
       </section>
     </main>
 
     <footer>
-      <p>Made with love by <strong>CosmicChef</strong></p>
+      <p>Made with love by cw</p>
     </footer>
   </body>
 </html>
